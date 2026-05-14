@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { PLANTS, getPlantById } from '../data/plants';
+import { useState, useCallback } from 'react';
+import { getPlantById } from '../data/plants';
 import { WEATHERS, SEASONS } from '../data/weathers';
 import { LESSONS } from '../data/lessons';
 import { r, ri, calculateGardenWorth } from '../utils';
@@ -51,7 +51,6 @@ export function useGameState() {
         growPct *= newWeather.mod;
       }
 
-      const oldValue = plot.value;
       plot.value = Math.max(10, plot.value * (1 + growPct / 100));
 
       return plot;
